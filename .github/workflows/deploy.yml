@@ -1,21 +1,21 @@
-name: Automate Re-deploy
+name: DevOps-Assignment
 on:
   push:
     branches:
       - main
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.02
     steps:
-      - name: SSH remote to Contabo VPS
+      - name: Remote to Contabo Server by SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 213.199.45.4
           username: root
-          key: ${{ secrets.CONTABO_KEY }}
+          key: ${{ secrets.CONTABO_TOKEN }}
           port: 22
           script: |
-            cd dev-ops-ass
+            cd apps/devops/devops-deploy
             git pull
             git submodule init
             git submodule update
