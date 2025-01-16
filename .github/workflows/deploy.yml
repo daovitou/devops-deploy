@@ -1,21 +1,19 @@
-name: DevOps-Assignment
+name: Deploy to VM
 on:
   push:
-    branches:
-      - main
+    branches: main
   pull_request:
     branches: main
 jobs:
-  deploy:
-    runs-on: ubuntu-22.02
+  test:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Remote to Contabo Server by SSH
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 213.199.45.4
           username: root
           key: ${{ secrets.SSH_KEY }}
-          port: 22
           script: |
             . ~/.nvm/nvm.sh
             whoami
