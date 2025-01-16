@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/daovitou/devops-v2-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/daovitou/devops-v2-frontend.git
